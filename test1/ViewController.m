@@ -26,10 +26,7 @@ const CGFloat NYTopViewH = 244;
     self.navigationController.navigationBar.hidden = YES;
     
     self.view.backgroundColor = [UIColor clearColor];
-//    View *v = [[View alloc] initWithFrame:self.view.bounds];
-//    v.delegate = self;
-//    self.v = v;
-//    [self.view addSubview:v];
+
     
     self.tb = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tb.contentInset = UIEdgeInsetsMake(36, 0, 0, 0);
@@ -41,27 +38,23 @@ const CGFloat NYTopViewH = 244;
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -36, W, NYTopViewH)];
     imageView.backgroundColor = [UIColor redColor];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
-//    imageView.image = [UIImage imageNamed:@"60"];
+
     UIImage *newImage =  [ViewController imageWithImage:[UIImage imageNamed:@"60"] scaledToSizeWithSameAspectRatio:CGSizeMake(500, 300)];
     imageView.image = [ViewController coreBlurImage:newImage withBlurNumber:10];
-//    self.tb.tableHeaderView = imageView;
+
     [self.tb insertSubview:imageView atIndex:0];
     self.imageView = imageView;
     
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
     image.center = CGPointMake(W/2,image.center.y);
     image.image = [UIImage imageNamed:@"60"];
-//    image.backgroundColor = [UIColor redColor];
+    
     image.contentMode = UIViewContentModeScaleAspectFit;
 
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 208)];
     view.backgroundColor = [UIColor clearColor];
     [view addSubview:image];
     self.tb.tableHeaderView = view;
-    
-    
-//    image.backgroundColor = [UIColor purpleColor];
-//    self.tb.tableHeaderView = image;
 }
 
 +(UIImage *)coreBlurImage:(UIImage *)image withBlurNumber:(CGFloat)blur
